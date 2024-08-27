@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Python-Flake-Template"
+version = "0.1.0"
+description = "Template Flake for Python Projects"
+authors = ["constexpr-if <constexpr12@gmail.com>"]
+readme = "README.md"
+# license = "BSD"
+packages = [{ include = "mypackage", from = "src", to = "mypackage" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
