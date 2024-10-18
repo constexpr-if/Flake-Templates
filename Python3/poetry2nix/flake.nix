@@ -2,7 +2,7 @@
   description = "Template Flake for Python Projects";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     poetry2nix.url = "github:nix-community/poetry2nix";
   };
 
