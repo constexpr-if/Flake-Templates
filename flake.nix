@@ -24,15 +24,10 @@
                     To get full setup, see the README.md
                 '';
             };
-            /*
             ocaml = {
                 path = ./OCaml;
-                description = "";
-                welcomeText = ''
-                
-                '';
+                description = "OCaml template, only provides nix shell";
             };
-            */
             python-poetry2nix = {
                 path = ./Python3/poetry2nix;
                 description = "Python template, using poetry";
