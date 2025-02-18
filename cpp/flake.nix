@@ -17,8 +17,9 @@
         version = "0.1.0";
         src = ./.;
         nativeBuildInputs = with pkgs; [
-          libgcc
+          cmake-language-server
           cmakeMinimal
+          libgcc
         ];
         installPhase = ''
           mkdir -p $out/lib $out/bin
