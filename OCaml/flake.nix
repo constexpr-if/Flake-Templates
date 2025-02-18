@@ -1,6 +1,4 @@
 {
-  description = "Template Flake for OCaml Projects";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
@@ -9,14 +7,16 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
+      inherit (pkgs) ocamlPackages;
     in
     {
-      devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; with ocamlPackages; [
-          dune_3
-          ocaml
-          opam
+      packages.${system}.default = ocamlPackages.buildDunePackage {
+        pname = "OCamlPS";
+        version = "0.1.0";
+        src = ./.;
+        nativeBuildInputs = with ocamlPackages; [
+          ocaml-lsp
+          ocamlformat
         ];
       };
     };
