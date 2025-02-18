@@ -19,6 +19,12 @@
       haskellPackages = pkgs.haskell.packages.${compiler}.extend overlays.haskell;
     in
     {
-      packages.${system}.default = haskellPackages.myPackage;
+      packages.${system}.default = haskellPackages.myPackage.overrideAttrs (final: prev: {
+        nativeBuildInputs = prev.nativeBuildInputs ++ [
+	  haskellPackages.haskell-language-server
+	  haskellPackages.cabal-install
+	];
+      });
     };
 }
+
